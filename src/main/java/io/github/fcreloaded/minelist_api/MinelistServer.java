@@ -24,16 +24,16 @@ public class MinelistServer {
 	
 	/**
 	 * Creates an instance with the info provided. It does not check whether the info is correct. @see Minelist_API#getServer()
-	 * @param id
-	 * @param name
-	 * @param address
-	 * @param version
-	 * @param onlinePlayers
-	 * @param maxPlayers
-	 * @param status
-	 * @param website
-	 * @param votes
-	 * @param owner
+	 * @param id id
+	 * @param name name
+	 * @param address address
+	 * @param version version
+	 * @param onlinePlayers onlinePlayers
+	 * @param maxPlayers maxPlayers
+	 * @param status status
+	 * @param website website
+	 * @param votes votes
+	 * @param owner owner
 	 */
 	public MinelistServer(String id, String name, String address, String version, int onlinePlayers, int maxPlayers, boolean status, URL website, int votes, String owner) {
 		this.id = id;
@@ -118,8 +118,8 @@ public class MinelistServer {
 	}
 	
 	/**
-	 * Refreshes the info. It depends on {@link Minelist_API#getServer)}.
-	 * @throws IOException
+	 * Refreshes the info. It depends on {@link Minelist_API#getServerById(String)}.
+	 * @throws IOException if it can't connect to the Internet etc.
 	 */
 	public void refresh() throws IOException {
 		MinelistServer refresh = Minelist_API.getServerById(id);
