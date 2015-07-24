@@ -20,7 +20,7 @@ public class Minelist_API {
 
 	/**
 	 * @return The revision string of Minelist
-	 * @throws IOException
+	 * @throws IOException if it can't connect to the Internet etc.
 	 */
 	public static String getRevision() throws IOException {
 		Document doc = Jsoup.connect("https://minelist.kr/").userAgent("Mozilla").get();
@@ -31,7 +31,7 @@ public class Minelist_API {
 	 * @return The version string of Minelist-API
 	 */
 	public static String getAPIVersion() {
-		return "1.0.0-SNAPSHOT";
+		return "1.0.1";
 	}
 	
 	/**
@@ -42,10 +42,10 @@ public class Minelist_API {
 	}
 	
 	/**
-	 * Checks the string and use either {@link #getServerById(String)} or {@link #getServerByAddress(String)}
+	 * Checks the string and uses either {@link #getServerById(String)} or {@link #getServerByAddress(String)}
 	 * @param string The string which you want to get the server with
 	 * @return A MinelistServer instance with the string
-	 * @throws IOException
+	 * @throws IOException if it can't connect to the Internet etc.
 	 */
 	public static MinelistServer getServer(String string) throws IOException {
 		if(string.contains(".")) {
@@ -58,7 +58,7 @@ public class Minelist_API {
 	 * Used when you want to get a MinelistServer instance with an id
 	 * @param id The id which you want to get the server with
 	 * @return A MinelistServer instance with the id
-	 * @throws IOException
+	 * @throws IOException if it can't connect to the Internet etc.
 	 */
 	public static MinelistServer getServerById(String id) throws IOException {
 		Document doc = Jsoup.connect("https://minelist.kr/servers/" + id).userAgent("Mozilla").timeout(100000).get();
@@ -134,7 +134,7 @@ public class Minelist_API {
 	 * Used when you want to get a MinelistServer instance with a rank
 	 * @param rank The rank which you want to get the server with
 	 * @return A MinelistServer instance with the rank
-	 * @throws IOException
+	 * @throws IOException if it can't connect to the Internet etc.
 	 */
 	public static MinelistServer getServerByRank(int rank) throws IOException {
 		if (rank < 1) {
@@ -157,7 +157,7 @@ public class Minelist_API {
 	 * Used when you want to search a server
 	 * @param search The method will search with the parameter string
 	 * @return A MinelistServer instance
-	 * @throws IOException
+	 * @throws IOException if it can't connect to the Internet etc.
 	 */
 	public static MinelistServer getServerBySearch(String search) throws IOException {
 		Document doc = Jsoup.connect("https://cse.google.com/cse?cx=001654289243094593526:ndmxr8xyff0&q=" + search).userAgent("Mozilla").get();
