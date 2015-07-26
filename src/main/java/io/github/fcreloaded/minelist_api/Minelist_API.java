@@ -92,7 +92,8 @@ public class Minelist_API {
 				owner = null;
 			}
 		}
-		return new MinelistServer(id, name, address, version, onlinePlayers, maxPlayers, status, website, votes, owner);
+		String title = doc.select("blockquote").first().ownText();
+		return new MinelistServer(id, name, address, version, onlinePlayers, maxPlayers, status, website, votes, owner, title);
 	}
 	
 	/**
@@ -133,7 +134,8 @@ public class Minelist_API {
 				owner = null;
 			}
 		}
-		return new MinelistServer(id, name, address, version, onlinePlayers, maxPlayers, status, website, votes, owner);
+		String title = doc.select("blockquote").first().ownText();
+		return new MinelistServer(id, name, address, version, onlinePlayers, maxPlayers, status, website, votes, owner, title);
 	}
 	
 	/**

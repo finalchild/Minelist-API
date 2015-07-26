@@ -21,6 +21,8 @@ public class MinelistServer {
 	protected URL website;
 	protected int votes;
 	protected String owner;
+	protected String title;
+	protected String description;
 	
 	/**
 	 * Creates an instance with the info provided. It does not check whether the info is correct. @see Minelist_API#getServer()
@@ -35,7 +37,7 @@ public class MinelistServer {
 	 * @param votes votes
 	 * @param owner owner
 	 */
-	public MinelistServer(String id, String name, String address, String version, int onlinePlayers, int maxPlayers, boolean status, URL website, int votes, String owner) {
+	public MinelistServer(String id, String name, String address, String version, int onlinePlayers, int maxPlayers, boolean status, URL website, int votes, String owner, String title) {
 		this.id = id;
 		this.name = name;
 		this.address = address;
