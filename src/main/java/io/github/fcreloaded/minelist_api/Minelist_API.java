@@ -42,6 +42,16 @@ public class Minelist_API {
 	}
 	
 	/**
+	 * 
+	 * @return The splash string of Minelist
+	 * @throws IOException
+	 */
+	public static String getSplash() throws IOException {
+		Document doc = Jsoup.connect("https://minelist.kr/").userAgent("Mozilla").get();
+		return doc.select("img[data-original-title]").attr("data-original-title");
+	}
+	
+	/**
 	 * Checks the string and uses either {@link #getServerById(String)} or {@link #getServerByAddress(String)}
 	 * @param string The string which you want to get the server with
 	 * @return A MinelistServer instance with the string

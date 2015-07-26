@@ -120,6 +120,14 @@ public class MinelistServer {
 	}
 	
 	/**
+	 * 
+	 * @return title
+	 */
+	public String getTitle() {
+		return this.title;
+	}
+	
+	/**
 	 * Refreshes the info. It depends on {@link Minelist_API#getServerById(String)}.
 	 * @throws IOException if it can't connect to the Internet etc.
 	 */
