@@ -31,14 +31,14 @@ public class Minelist_API {
 	 * @return The version string of Minelist-API
 	 */
 	public static String getAPIVersion() {
-		return "1.0.1";
+		return "1.1.0-SNAPSHOT";
 	}
 	
 	/**
 	 * @return The revision string of Minelist which this version of Minelist-API is based on
 	 */
 	public static String getAPIRevision() {
-		return "a50347f";
+		return "aab9797";
 	}
 	
 	/**
@@ -95,6 +95,12 @@ public class Minelist_API {
 		return new MinelistServer(id, name, address, version, onlinePlayers, maxPlayers, status, website, votes, owner);
 	}
 	
+	/**
+	 * Used when you want to get a MinelistServer instance with an address
+	 * @param id The address which you want to get the server with
+	 * @return A MinelistServer instance with the address
+	 * @throws IOException if it can't connect to the Internet etc.
+	 */
 	public static MinelistServer getServerByAddress(String address) throws IOException {
 		Document doc = Jsoup.connect("https://minelist.kr/servers/" + address).userAgent("Mozilla").timeout(100000).get();
 		String id = doc.select(".btn-sm").first().attr("href").substring(9);
