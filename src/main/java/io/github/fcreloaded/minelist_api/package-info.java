@@ -1,5 +1,5 @@
 /**
- * 
+ * Minelist-API main package
  */
 /**
  * @author finalchild
