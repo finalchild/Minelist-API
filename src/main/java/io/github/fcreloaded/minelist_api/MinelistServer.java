@@ -6,7 +6,7 @@ import java.net.URL;
 /**
  * Used to store and get info about a server
  * @author finalchild
- * @version 1.0
+ * @version 1.1
  * @since 1.0
  */
 public class MinelistServer {
