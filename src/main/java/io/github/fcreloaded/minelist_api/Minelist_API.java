@@ -102,7 +102,7 @@ public class Minelist_API {
 				owner = null;
 			}
 		}
-		String title = doc.select("blockquote").first().ownText();
+		String title = doc.select("blockquote").first().child(0).ownText();
 		return new MinelistServer(id, name, address, version, onlinePlayers, maxPlayers, status, website, votes, owner, title);
 	}
 	
@@ -144,7 +144,7 @@ public class Minelist_API {
 				owner = null;
 			}
 		}
-		String title = doc.select("blockquote").first().ownText();
+		String title = doc.select("blockquote").first().child(0).ownText();
 		return new MinelistServer(id, name, address, version, onlinePlayers, maxPlayers, status, website, votes, owner, title);
 	}
 	

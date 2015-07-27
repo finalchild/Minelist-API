@@ -36,6 +36,7 @@ public class MinelistServer {
 	 * @param website website
 	 * @param votes votes
 	 * @param owner owner
+	 * @param title title
 	 */
 	public MinelistServer(String id, String name, String address, String version, int onlinePlayers, int maxPlayers, boolean status, URL website, int votes, String owner, String title) {
 		this.id = id;
@@ -48,6 +49,7 @@ public class MinelistServer {
 		this.website = website;
 		this.votes = votes;
 		this.owner = owner;
+		this.title = title;
 	}
 	
 	/**
