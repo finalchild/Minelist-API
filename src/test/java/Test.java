@@ -9,8 +9,9 @@ import io.github.fcreloaded.minelist_api.Minelist_API;
 public class Test {
 	public static void main(String args[]) {
 		try {
-			MinelistServer server = Minelist_API.getServerByRank(1);
+			MinelistServer server = Minelist_API.getServerByRank(300);
 			System.out.println(server.getName());
+			System.out.println(server.getAddress());
 			System.out.println(server.getVersion());
 			System.out.println(server.getOnlinePlayers());
 			System.out.println(server.getMaxPlayers());
@@ -19,6 +20,7 @@ public class Test {
 			System.out.println(server.getVotes());
 			System.out.println(server.getOwner());
 			System.out.println(server.getTitle());
+			System.out.println(server.getId());
 			System.out.println(Minelist_API.getSplash());
 		} catch (IOException e) {
 			e.printStackTrace();

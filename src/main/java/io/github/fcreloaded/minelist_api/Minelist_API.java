@@ -102,7 +102,12 @@ public class Minelist_API {
 				owner = null;
 			}
 		}
-		String title = doc.select("blockquote").first().child(0).ownText();
+		String title;
+		try {
+			title = doc.select("blockquote").first().child(0).ownText();
+		} catch(IndexOutOfBoundsException ioobe) {
+			title = null;
+		}
 		return new MinelistServer(id, name, address, version, onlinePlayers, maxPlayers, status, website, votes, owner, title);
 	}
 	
@@ -114,7 +119,7 @@ public class Minelist_API {
 	 */
 	public static MinelistServer getServerByAddress(String address) throws IOException {
 		Document doc = Jsoup.connect("https://minelist.kr/servers/" + address).userAgent("Mozilla").timeout(100000).get();
-		String id = doc.select(".btn-sm").first().attr("href").substring(9);
+		String id = doc.select(".btn-sm").first().attr("href").substring(9, 33);
 		String name = doc.select("#mc-server-panel-heading").first().ownText();
 		String version = doc.select(".panel-body").first().child(1).child(1).child(1).ownText();
 		String players = doc.select("td[itemprop=playersOnline]").first().ownText();
@@ -144,7 +149,12 @@ public class Minelist_API {
 				owner = null;
 			}
 		}
-		String title = doc.select("blockquote").first().child(0).ownText();
+		String title;
+		try {
+			title = doc.select("blockquote").first().child(0).ownText();
+		} catch(IndexOutOfBoundsException ioobe) {
+			title = null;
+		}
 		return new MinelistServer(id, name, address, version, onlinePlayers, maxPlayers, status, website, votes, owner, title);
 	}
 	
