@@ -44,7 +44,7 @@ public class Minelist_API {
 	/**
 	 * Gets the splash string of Minelist
 	 * @return The splash string of Minelist
-	 * @throws IOException
+	 * @throws IOException if it can't connect to the Internet etc.
 	 */
 	public static String getSplash() throws IOException {
 		Document doc = Jsoup.connect("https://minelist.kr/").userAgent("Mozilla").get();
@@ -113,7 +113,7 @@ public class Minelist_API {
 	
 	/**
 	 * Used when you want to get a MinelistServer instance with an address
-	 * @param id The address which you want to get the server with
+	 * @param address The address which you want to get the server with
 	 * @return A MinelistServer instance with the address
 	 * @throws IOException if it can't connect to the Internet etc.
 	 */
