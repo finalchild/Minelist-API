@@ -42,13 +42,13 @@ public class Minelist_API {
 	}
 	
 	/**
-	 * 
+	 * Gets the splash string of Minelist
 	 * @return The splash string of Minelist
 	 * @throws IOException
 	 */
 	public static String getSplash() throws IOException {
 		Document doc = Jsoup.connect("https://minelist.kr/").userAgent("Mozilla").get();
-		return doc.select("img[data-original-title]").attr("data-original-title");
+		return doc.select("img").first().attr("title");
 	}
 	
 	/**
