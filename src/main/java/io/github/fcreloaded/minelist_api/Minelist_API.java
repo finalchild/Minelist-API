@@ -31,14 +31,14 @@ public class Minelist_API {
 	 * @return The version string of Minelist-API
 	 */
 	public static String getAPIVersion() {
-		return "1.1.0";
+		return "1.1.1-SNAPSHOT";
 	}
 	
 	/**
 	 * @return The revision string of Minelist which this version of Minelist-API is based on
 	 */
 	public static String getAPIRevision() {
-		return "aab9797";
+		return "59ed816";
 	}
 	
 	/**
