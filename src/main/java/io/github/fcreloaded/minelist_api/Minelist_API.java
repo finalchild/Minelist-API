@@ -104,7 +104,7 @@ public class Minelist_API {
 		}
 		String title;
 		try {
-			title = doc.select("blockquote").first().child(0).ownText();
+			title = doc.select("blockquote").first().ownText();
 		} catch(IndexOutOfBoundsException ioobe) {
 			title = null;
 		}
@@ -151,7 +151,7 @@ public class Minelist_API {
 		}
 		String title;
 		try {
-			title = doc.select("blockquote").first().child(0).ownText();
+			title = doc.select("blockquote").first().ownText();
 		} catch(IndexOutOfBoundsException ioobe) {
 			title = null;
 		}

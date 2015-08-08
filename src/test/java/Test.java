@@ -9,7 +9,7 @@ import io.github.fcreloaded.minelist_api.Minelist_API;
 public class Test {
 	public static void main(String args[]) {
 		try {
-			MinelistServer server = Minelist_API.getServerByRank(300);
+			MinelistServer server = Minelist_API.getServerByRank(2);
 			System.out.println(server.getName());
 			System.out.println(server.getAddress());
 			System.out.println(server.getVersion());
