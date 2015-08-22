@@ -81,12 +81,20 @@ public class Minelist_API {
 		boolean status = doc.select("td[itemprop=serverStatus]").first().child(0).ownText().equalsIgnoreCase("Online");
 		URL website;
 		int votes;
+		int rank;
+		String rankText;
 		String owner;
 		Element ownerElement;
 		try {
 			website = new URL(doc.select("div[itemprop=url]").first().child(0).ownText());
 			votes = Integer.parseInt(doc.select(".panel-body").first().child(1).child(5).child(1).ownText());
-			ownerElement = doc.select(".panel-body").first().child(1).child(6).child(1);
+			rankText = doc.select(".panel-body").first().child(1).child(6).child(1).ownText();
+			if (!rankText.equals("-")) {
+				rank = Integer.parseInt(rankText);
+			} else {
+				rank = 0;
+			}
+			ownerElement = doc.select(".panel-body").first().child(1).child(7).child(1);
 			if (ownerElement.children().size() == 0) {
 				owner = ownerElement.ownText();
 			} else {
@@ -95,12 +103,19 @@ public class Minelist_API {
 		} catch(NullPointerException npe) {
 			website = null;
 			votes = Integer.parseInt(doc.select(".panel-body").first().child(1).child(4).child(1).ownText());
-			ownerElement = doc.select(".panel-body").first().child(1).child(5).child(1);
+			rankText = doc.select(".panel-body").first().child(1).child(5).child(1).ownText();
+			if (!rankText.equals("-")) {
+				rank = 0;
+			} else {
+				rank = Integer.parseInt(rankText);
+			}
+			ownerElement = doc.select(".panel-body").first().child(1).child(6).child(1);
 			if (ownerElement.children().size() == 0) {
 				owner = ownerElement.ownText();
 			} else {
 				owner = null;
 			}
+			
 		}
 		String title;
 		try {
@@ -108,7 +123,7 @@ public class Minelist_API {
 		} catch(IndexOutOfBoundsException ioobe) {
 			title = null;
 		}
-		return new MinelistServer(id, name, address, version, onlinePlayers, maxPlayers, status, website, votes, owner, title);
+		return new MinelistServer(id, name, address, version, onlinePlayers, maxPlayers, status, website, votes, rank, owner, title);
 	}
 	
 	/**
@@ -128,12 +143,20 @@ public class Minelist_API {
 		boolean status = doc.select("td[itemprop=serverStatus]").first().child(0).ownText().equalsIgnoreCase("Online");
 		URL website;
 		int votes;
+		int rank;
+		String rankText;
 		String owner;
 		Element ownerElement;
 		try {
 			website = new URL(doc.select("div[itemprop=url]").first().child(0).ownText());
 			votes = Integer.parseInt(doc.select(".panel-body").first().child(1).child(5).child(1).ownText());
-			ownerElement = doc.select(".panel-body").first().child(1).child(6).child(1);
+			rankText = doc.select(".panel-body").first().child(1).child(6).child(1).ownText();
+			if (!rankText.equals("-")) {
+				rank = Integer.parseInt(rankText);
+			} else {
+				rank = 0;
+			}
+			ownerElement = doc.select(".panel-body").first().child(1).child(7).child(1);
 			if (ownerElement.children().size() == 0) {
 				owner = ownerElement.ownText();
 			} else {
@@ -142,7 +165,13 @@ public class Minelist_API {
 		} catch(NullPointerException npe) {
 			website = null;
 			votes = Integer.parseInt(doc.select(".panel-body").first().child(1).child(4).child(1).ownText());
-			ownerElement = doc.select(".panel-body").first().child(1).child(5).child(1);
+			rankText = doc.select(".panel-body").first().child(1).child(5).child(1).ownText();
+			if (!rankText.equals("-")) {
+				rank = Integer.parseInt(rankText);
+			} else {
+				rank = 0;
+			}
+			ownerElement = doc.select(".panel-body").first().child(1).child(6).child(1);
 			if (ownerElement.children().size() == 0) {
 				owner = ownerElement.ownText();
 			} else {
@@ -155,7 +184,7 @@ public class Minelist_API {
 		} catch(IndexOutOfBoundsException ioobe) {
 			title = null;
 		}
-		return new MinelistServer(id, name, address, version, onlinePlayers, maxPlayers, status, website, votes, owner, title);
+		return new MinelistServer(id, name, address, version, onlinePlayers, maxPlayers, status, website, votes, rank, owner, title);
 	}
 	
 	/**

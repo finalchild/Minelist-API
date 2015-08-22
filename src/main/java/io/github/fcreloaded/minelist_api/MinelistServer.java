@@ -20,6 +20,7 @@ public class MinelistServer {
 	protected boolean status;
 	protected URL website;
 	protected int votes;
+	protected int rank;
 	protected String owner;
 	protected String title;
 	protected String description;
@@ -38,7 +39,7 @@ public class MinelistServer {
 	 * @param owner owner
 	 * @param title title
 	 */
-	public MinelistServer(String id, String name, String address, String version, int onlinePlayers, int maxPlayers, boolean status, URL website, int votes, String owner, String title) {
+	public MinelistServer(String id, String name, String address, String version, int onlinePlayers, int maxPlayers, boolean status, URL website, int votes, int rank, String owner, String title) {
 		this.id = id;
 		this.name = name;
 		this.address = address;
@@ -48,6 +49,7 @@ public class MinelistServer {
 		this.status = status;
 		this.website = website;
 		this.votes = votes;
+		this.rank = rank;
 		this.owner = owner;
 		this.title = title;
 	}
@@ -112,6 +114,13 @@ public class MinelistServer {
 	 */
 	public int getVotes() {
 		return this.votes;
+	}
+	
+	/**
+	 * @return rank
+	 */
+	public int getRank() {
+		return rank;
 	}
 	
 	/**
