@@ -55,6 +55,24 @@ public class MinelistServer {
 	}
 	
 	/**
+	 * @param server
+	 */
+	public MinelistServer(MinelistServer server) {
+		this.id = server.id;
+		this.name = server.name;
+		this.address = server.address;
+		this.version = server.version;
+		this.onlinePlayers = server.onlinePlayers;
+		this.maxPlayers = server.maxPlayers;
+		this.status = server.status;
+		this.website = server.website;
+		this.votes = server.votes;
+		this.rank = server.rank;
+		this.owner = server.owner;
+		this.title = server.title;
+	}
+
+	/**
 	 * @return id
 	 */
 	public String getId() {
@@ -152,7 +170,9 @@ public class MinelistServer {
 		this.status = refresh.status;
 		this.website = refresh.website;
 		this.votes = refresh.votes;
+		this.rank = refresh.rank;
 		this.owner = refresh.owner;
+		this.title = refresh.title;
 	}
 
 }
