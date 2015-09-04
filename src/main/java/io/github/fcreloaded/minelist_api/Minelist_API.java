@@ -13,7 +13,7 @@ import org.jsoup.nodes.Element;
 /**
  * A collection of methods which can be used to get a MinelistServer instance, features will be added
  * @author finalchild
- * @version 1.1
+ * @version 1.1.1
  * @since 1.0
  */
 public class Minelist_API {
